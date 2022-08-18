@@ -12,6 +12,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="navbar bg-dark bg-opacity-50 px-5 mb-3 sticky-top">
+      <%= link_to "Kitchen Nightmares", restaurants_path, class: "btn btn-danger hoverable" %>
+      <%= link_to "Add New Restaurant", new_restaurant_path, class: "btn btn-primary hoverable" %>
+    </div>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

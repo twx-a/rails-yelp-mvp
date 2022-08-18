@@ -1,2 +1,31 @@
-<h1>Restaurants#show</h1>
-<p>Find me in app/views/restaurants/show.html.erb</p>
+<h2><%= @restaurant.name %></h2>
+<p>Address: <%= @restaurant.address %></p>
+<p>Phone Number: <%= @restaurant.phone_number %></p>
+<p>Cuisine Type: <%= @restaurant.category %> </p>
+
+<hr class = "my-4">
+
+<%= link_to "Edit Restaurant", edit_restaurant_path, class: "btn btn-outline-success hoverable" %>
+<%= link_to "Remove Restaurant",
+  restaurant_path(@restaurant),
+  class: "btn btn-outline-danger",
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
+<%= link_to "Add Review", new_restaurant_review_path(@restaurant), class: "btn btn-outline-warning hoverable" %>
+
+<hr class ="my-4">
+
+<h2>Reviews</h2>
+<% @restaurant.reviews.each do |review| %>
+  <div class = "bg-dark bg-opacity-10 container rounded shadow p-3 mb-5">
+      <p> >  Unknown: <%= review.content %></p>
+      <p> >  Rating: <%= review.rating %> </p>
+      <p>
+        <%= link_to "Edit Review",
+        edit_review_path(review), class: "btn" %> |
+        <%= link_to "Delete Review",
+        review_path(review),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn" %>
+      </p>
+  </div>
+<% end %>

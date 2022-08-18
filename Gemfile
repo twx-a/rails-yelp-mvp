@@ -45,6 +45,9 @@ gem "bootsnap", require: false
 # simple form
 gem "simple_form", github: "heartcombo/simple_form"
 
+# faker
+gem "faker"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
